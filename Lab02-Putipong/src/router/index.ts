@@ -1,3 +1,4 @@
+// 4.15 problem in line 4 and 22-26
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CategoryView from '../views/CategoryView.vue'
