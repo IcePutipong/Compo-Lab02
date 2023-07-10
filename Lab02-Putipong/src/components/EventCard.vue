@@ -1,22 +1,19 @@
 <template>
-
-    <div class="event-card">
-      <span> @{{ event?.time }} on {{ event?.date }} </span>
-      <h4>{{ event?.title }}</h4>
-    </div>
-
+  <div class="event-card">
+    <span> @{{ event?.time }} on {{ event?.date }} </span>
+    <h4>{{ event?.title }}</h4>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { EventItem } from '@/type'
 import type { PropType } from 'vue'
 const props = defineProps({
-    event:{
-        type: Object as PropType<EventItem>,
-            require: true
-    }
+  event: {
+    type: Object as PropType<EventItem>,
+    require: true
+  }
 })
-
 </script>
 
 <style scoped>
