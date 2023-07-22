@@ -15,6 +15,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
         <!-- 4.15 problem  in line 17-->
         <RouterLink to="/Category">Category</RouterLink>
+        <RouterLink to="/Student">Student</RouterLink>
       </nav>
     </div>
   </header>
