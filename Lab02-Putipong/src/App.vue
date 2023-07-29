@@ -11,11 +11,11 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink :to="{name:'EventList'}">Home</RouterLink>
+        <RouterLink :to="{name: 'about'}">About</RouterLink>
         <!-- 4.15 problem  in line 17-->
-        <RouterLink to="/Category">Category</RouterLink>
-        <RouterLink to="/Student">Student</RouterLink>
+        <RouterLink :to="{name: 'category'}">Category</RouterLink>
+        <RouterLink :to="{name: 'student'}">Student</RouterLink>
       </nav>
     </div>
   </header>

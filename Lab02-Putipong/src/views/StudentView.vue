@@ -17,4 +17,4 @@ StuedntService.getEvent().then((res) => {
 })
 </script>
 
-<style scoped></style>
+<!-- <style scoped></style> -->
