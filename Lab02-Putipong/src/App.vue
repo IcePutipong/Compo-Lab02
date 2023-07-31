@@ -1,26 +1,28 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+const sizes = ref<number>(2)
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
-        <RouterLink :to="{name:'EventList'}">Home</RouterLink>
-        <RouterLink :to="{name: 'about'}">About</RouterLink>
+        <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
+        <RouterLink :to="{ name: 'about' }">About</RouterLink>
         <!-- 4.15 problem  in line 17-->
-        <RouterLink :to="{name: 'category'}">Category</RouterLink>
-        <RouterLink :to="{name: 'student'}">Student</RouterLink>
+        <RouterLink :to="{ name: 'category' }">Category</RouterLink>
+        <RouterLink :to="{ name: 'student' }">Student</RouterLink>
       </nav>
+      <div class="size">
+        <label> Size : </label>
+        <input class="sizes" type="number" v-model="sizes" />
+      </div>
+
+      <RouterView :size="sizes" />
     </div>
   </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
