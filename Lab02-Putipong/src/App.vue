@@ -1,26 +1,35 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import { ref } from 'vue'
+import { useMessangeStore } from './stores/message';
+import { storeToRefs } from 'pinia';
+
+const store = useMessangeStore()
+const { message } = storeToRefs(store)
 const sizes = ref<number>(2)
 </script>
 
 <template>
   <header>
+    <div id="flashMessage" v-if="message">
+        <h4> {{ message }}</h4>
+    </div>
     <div class="wrapper">
-      <nav>
-        <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'about' }">About</RouterLink>
-        <!-- 4.15 problem  in line 17-->
-        <RouterLink :to="{ name: 'category' }">Category</RouterLink>
-        <RouterLink :to="{ name: 'student' }">Student</RouterLink>
-      </nav>
-      <div class="size">
-        <label> Size : </label>
-        <input class="sizes" type="number" v-model="sizes" />
-      </div>
+      <div>
+        <nav>
+          <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
+          <RouterLink :to="{ name: 'about' }">About</RouterLink>
+          <!-- 4.15 problem  in line 17-->
+          <RouterLink :to="{ name: 'category' }">Category</RouterLink>
+          <RouterLink :to="{ name: 'student' }">Student</RouterLink>
+        </nav>
+        <div class="size">
+          <label> Size : </label>
+          <input class="sizes" type="number" v-model="sizes" />
+        </div>
 
-      <RouterView :size="sizes" />
+        <RouterView :size="sizes" />
+      </div>
     </div>
   </header>
 </template>
@@ -89,5 +98,15 @@ nav a:first-of-type {
 }
 h4 {
   font-size: 20px;
+}
+@keyframes yellowfade {
+  from{
+    background: yellow;
+  } to {
+    background: transparent;
+  }
+}
+#flashMessage {
+  animation: yellowfade 3s ease-in-out;
 }
 </style>
