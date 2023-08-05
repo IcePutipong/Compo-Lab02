@@ -2,7 +2,7 @@
   <br>
   <h1>Events For Good</h1>
   <br>
-  <main class="events">
+  <main class="flex flex-col items-center">
     <StudentCard v-for="student in students" :student="student" :key="student.id"></StudentCard>
   </main>
 </template>

@@ -13,8 +13,8 @@ const sizes = ref<number>(2)
   <div>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
   </div>
-  <header>
-    <div class="wrapper">
+  <header class="max-h-screen leading-normal">
+    <div>
       <div>
         <nav>
           <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
@@ -28,13 +28,7 @@ const sizes = ref<number>(2)
           <h4> {{ message }}</h4>
         </div>
         <br>
-        <div class="size">
-          <input class="sizes" type="number" v-model="sizes" />
-        </div>
-
-        <RouterView :size="sizes" />
-
-        
+                
       </div>
     </div>
 
@@ -44,11 +38,6 @@ const sizes = ref<number>(2)
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -80,21 +69,11 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
   .logo {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 
   nav {
     text-align: left;
