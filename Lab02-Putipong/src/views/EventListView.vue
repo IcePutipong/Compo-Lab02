@@ -17,18 +17,15 @@
 <script setup lang="ts">
 import EventCard from '../components/EventCard.vue'
 import type { EventItem } from '@/type'
-import { ref, type Ref, watchEffect, computed } from 'vue'
+import { ref, type Ref, computed } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
 import EventService from '@/services/EventService'
-import NProgress from 'nprogress'
-import { useRouter } from 'vue-router'
-import type { Axios, AxiosResponse } from 'axios'
+import type { AxiosResponse } from 'axios'
 import router from '@/router'
 
 
 const events: Ref<Array<EventItem>> = ref([])
 const totalEvent = ref<number>(0)
-const sizes = ref<number>(2)
 const props = defineProps({
   page: {
     type: Number,
@@ -40,8 +37,7 @@ const props = defineProps({
   }
 })
 
-
-EventService.getEvent(props.size, props.page).then((response: AxiosResponse<EventItem[]>) => {
+EventService.getEvent(2, props.page).then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
     totalEvent.value = response.headers['x-total-count']
   }).catch(()=>{
@@ -51,7 +47,7 @@ EventService.getEvent(props.size, props.page).then((response: AxiosResponse<Even
   onBeforeRouteUpdate((to, from, next) =>{
     const toPage = Number(to.query.page)
     ///????????
-    EventService.getEvent(props.size, toPage).then((response: AxiosResponse<EventItem[]>) =>{
+    EventService.getEvent(2, toPage).then((response: AxiosResponse<EventItem[]>) =>{
       events.value = response.data
       totalEvent.value = response.headers['x-total-count']
       next()
