@@ -41,19 +41,15 @@ const props = defineProps({
 })
 
 
-NProgress.start()
 EventService.getEvent(props.size, props.page).then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
     totalEvent.value = response.headers['x-total-count']
   }).catch(()=>{
     router.push({ name: 'NetworkError'})
-  }).finally(() =>{
-    NProgress.done()
   })
 
   onBeforeRouteUpdate((to, from, next) =>{
     const toPage = Number(to.query.page)
-    NProgress.start()
     ///????????
     EventService.getEvent(props.size, toPage).then((response: AxiosResponse<EventItem[]>) =>{
       events.value = response.data
@@ -61,8 +57,6 @@ EventService.getEvent(props.size, props.page).then((response: AxiosResponse<Even
       next()
     }).catch(() => {
       next({ name: 'NetworkError'})
-    }).finally(()=>{
-      NProgress.done()
     })
   })
     
