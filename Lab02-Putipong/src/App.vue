@@ -10,10 +10,10 @@ const sizes = ref<number>(2)
 </script>
 
 <template>
+  <div>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  </div>
   <header>
-    <div id="flashMessage" v-if="message">
-        <h4> {{ message }}</h4>
-    </div>
     <div class="wrapper">
       <div>
         <nav>
@@ -23,14 +23,23 @@ const sizes = ref<number>(2)
           <RouterLink :to="{ name: 'category' }">Category</RouterLink>
           <RouterLink :to="{ name: 'student' }">Student</RouterLink>
         </nav>
+
+        <div id="flashMessage" v-if="message">
+          <h4> {{ message }}</h4>
+        </div>
+        <br>
         <div class="size">
-          <label> Size : </label>
           <input class="sizes" type="number" v-model="sizes" />
         </div>
 
         <RouterView :size="sizes" />
+
+        
       </div>
     </div>
+
+
+
   </header>
 </template>
 
@@ -46,7 +55,7 @@ header {
 }
 
 nav {
-  width: 100%;
+  /* width: 100%; */
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
@@ -96,16 +105,21 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
 h4 {
   font-size: 20px;
 }
+
 @keyframes yellowfade {
-  from{
+  from {
     background: yellow;
-  } to {
+  }
+
+  to {
     background: transparent;
   }
 }
+
 #flashMessage {
   animation: yellowfade 3s ease-in-out;
 }
