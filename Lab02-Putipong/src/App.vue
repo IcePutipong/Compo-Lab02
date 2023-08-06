@@ -15,6 +15,7 @@ const sizes = ref<number>(2)
   </div>
 
   <header class="max-h-screen leading-normal">
+    <h4>Putipong Sailen</h4>
     <nav class="sm:flex justify-center items-center ">
       <div class="space-x-2 font-mono">
         <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
