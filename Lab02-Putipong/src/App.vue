@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import { useMessangeStore } from './stores/message';
-import { storeToRefs } from 'pinia';
+import { useMessangeStore } from './stores/message'
+import { storeToRefs } from 'pinia'
 
 const store = useMessangeStore()
 const { message } = storeToRefs(store)
@@ -11,89 +11,34 @@ const sizes = ref<number>(2)
 
 <template>
   <div>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="logo" src="@/assets/logo.svg" class="mt-5 m-auto mb-10 object-center h-20 w-28" />
   </div>
+
   <header class="max-h-screen leading-normal">
-    <div>
-      <div>
-        <nav>
-          <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
-          <RouterLink :to="{ name: 'about' }">About</RouterLink>
-          <!-- 4.15 problem  in line 17-->
-          <RouterLink :to="{ name: 'category' }">Category</RouterLink>
-          <RouterLink :to="{ name: 'student' }">Student</RouterLink>
-        </nav>
-
-        <div id="flashMessage" v-if="message">
-          <h4> {{ message }}</h4>
-        </div>
-        <br>
-                
+    <nav class="sm:flex justify-center items-center ">
+      <div class="space-x-2 font-mono">
+        <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
+        <RouterLink :to="{ name: 'about' }">About</RouterLink>
+        <!-- 4.15 problem  in line 17-->
+        <RouterLink :to="{ name: 'category' }">Category</RouterLink>
+        <RouterLink :to="{ name: 'student' }">Student</RouterLink>
       </div>
+    </nav>
+
+    <div id="flashMessage" v-if="message">
+      <h4 class="text-center font-mono">{{ message }}</h4>
     </div>
-
-
-
   </header>
+  <RouterView />
+  <br />
 </template>
 
+
 <style scoped>
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  /* width: 100%; */
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-
-h4 {
-  font-size: 20px;
-}
-
 @keyframes yellowfade {
   from {
-    background: yellow;
+    background: rgb(167 243 208);
   }
-
   to {
     background: transparent;
   }

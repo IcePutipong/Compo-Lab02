@@ -1,14 +1,14 @@
 <template>
   <br>
-  <h1>Events for Good</h1>
+  <h1 class="text-center font-bold font-mono text-emerald-500">Events for Good</h1>
   <br>
   
   <main class="flex flex-col items-center">
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
-    <RouterLink :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1" id="page-prev">
+    <RouterLink :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1" id="page-prev" class="font-mono">
       Prev Page
     </RouterLink>
-    <RouterLink :to="{ name: 'EventList', query: { page: page + 1 } }" rel="prev" v-if="hasNextPage" id="page-next">
+    <RouterLink :to="{ name: 'EventList', query: { page: page + 1 } }" rel="prev" v-if="hasNextPage" id="page-next" class="font-mono">
       Next Page
     </RouterLink>
   </main>

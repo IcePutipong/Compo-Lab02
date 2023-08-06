@@ -9,9 +9,10 @@ const id = ref(event?.value?.id)
 
 </script>
 <template>
-    <div v-if="event">
-        <h1>{{ event.title }}</h1>
-        <div id ="nav">
+    <div class="m-2 border-t-2 border-emerald-400"/>
+    <div v-if="event" class="text-center" >
+        <h1 class=" text-emerald-500 font-bold font-mono text-xl">{{ event.title }}</h1>
+        <div class="font-mono text-lg">
             <router-link :to="{ name: 'event-detail', params: { id } }"
             > Details </router-link> 
             |

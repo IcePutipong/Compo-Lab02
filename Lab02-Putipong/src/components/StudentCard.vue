@@ -1,7 +1,7 @@
 <template>
-    <div class="event-card">
-      <span> @{{ student?.name }} on {{ student?.surname }} </span>
-      <h4>{{ student?.gpa }}</h4>
+    <div class="mb-3 p-2 border-2 border-solid border-emerald-400 w-60 h-30 ">
+      <span> @ {{ student?.name }} {{ student?.surname }} </span>
+      <h4  class="text-center font-semibold">{{ student?.gpa }}</h4>
     </div>
   </template>
   

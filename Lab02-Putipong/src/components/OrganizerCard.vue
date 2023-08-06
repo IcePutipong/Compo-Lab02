@@ -1,8 +1,8 @@
 <!-- 4.15 problem create this file-->
 <template>
-  <div class="event-card">
+  <div class="mb-3 p-2 border-2 border-solid border-emerald-400 w-60 h-30 ">
     <span> {{ event?.category }} </span>
-    <h4>{{ event?.organizer }}</h4>
+    <h4 class="text-center font-semibold">{{ event?.organizer }}</h4>
   </div>
 </template>
 

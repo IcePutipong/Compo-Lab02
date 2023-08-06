@@ -29,6 +29,6 @@ function register(){
 
 </script>
 <template>
-        <p> Registration from here </p>
-        <button @click="register"> Register ME </button>
+        <p class="text-center font-mono mt-2"> Registration from here </p>
+        <button @click="register" class="mt-1 border border-emerald-500 rounded-md w-24 text-emerald-500"> Register ME </button>
 </template>

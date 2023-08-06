@@ -30,6 +30,6 @@ function edit(){
 </script>
 
 <template>
-  <p>Edit the event here</p>
-  <button @click="edit">Edit Me</button>
+  <p class="text-center  font-mono mt-2">Edit the event here</p>
+  <button @click="edit" class="mt-1 border border-emerald-500 rounded-md w-24 text-emerald-500">Edit Me</button>
 </template>

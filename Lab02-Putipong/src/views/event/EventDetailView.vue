@@ -13,7 +13,7 @@ defineProps({
 </script>
 
 <template>
-    <div v-if="event">
+    <div v-if="event" class="text-center font-mono mt-2">
         <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
         <p>{{ event.description }}</p>
 
