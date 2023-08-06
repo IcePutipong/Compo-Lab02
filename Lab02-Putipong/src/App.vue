@@ -25,7 +25,7 @@ const sizes = ref<number>(2)
       </div>
     </nav>
 
-    <div id="flashMessage" v-if="message">
+    <div class="bg-emerald-300 transition duration-3000 m-2" v-if="message">
       <h4 class="text-center font-mono">{{ message }}</h4>
     </div>
   </header>
@@ -34,17 +34,4 @@ const sizes = ref<number>(2)
 </template>
 
 
-<style scoped>
-@keyframes yellowfade {
-  from {
-    background: rgb(167 243 208);
-  }
-  to {
-    background: transparent;
-  }
-}
 
-#flashMessage {
-  animation: yellowfade 3s ease-in-out;
-}
-</style>
