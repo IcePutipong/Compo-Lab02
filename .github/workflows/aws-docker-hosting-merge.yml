@@ -23,7 +23,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: mansmooth/se331-lab06:latest
+          tags: putipongsailen/se331-lab06:latest
       - name: Copy file via SSH
         uses: appleboy/scp-action@v0.1.4
         with:
