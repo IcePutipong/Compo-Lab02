@@ -9,6 +9,7 @@ const props = defineProps({
     id: String
 })
 
+    // eslint-disable-next-line vue/no-setup-props-destructure
     EventService.getEventById(Number(props.id))
     .then((response) => {
         event.value = response.data

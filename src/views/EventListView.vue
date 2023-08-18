@@ -37,6 +37,7 @@ const props = defineProps({
   }
 })
 
+// eslint-disable-next-line vue/no-setup-props-destructure
 EventService.getEvent(3, props.page).then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
     totalEvent.value = response.headers['x-total-count']
