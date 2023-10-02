@@ -1,17 +1,18 @@
 <!-- 4.15 problem create this file-->
 <template>
   <div class="mb-3 p-2 border-2 border-solid border-emerald-400 w-60 h-30 ">
-    <span> {{ event?.category }} </span>
-    <h4 class="text-center font-semibold">{{ event?.organizer }}</h4>
+    <span> {{ organizer?.name }} </span>
+    <h4 class="text-center font-semibold">{{ organizer?.id }}</h4>
+    <h4 class="text-center font-semibold">{{ organizer?.address }}</h4>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { EventItem } from '@/type'
+import type { Organizer } from '@/type'
 import type { PropType } from 'vue'
 const props = defineProps({
-  event: {
-    type: Object as PropType<EventItem>,
+  organizer: {
+    type: Object as PropType<Organizer>,
     require: true
   }
 })

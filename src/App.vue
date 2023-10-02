@@ -15,13 +15,13 @@ const sizes = ref<number>(2)
   </div>
 
   <header class="max-h-screen leading-normal">
-    <h4 class="text-center font-bold font-mono text-emerald-500">Julaluck Yeta</h4>
+    <h4 class="text-center font-bold font-mono text-emerald-500">Putipong Sailen</h4>
     <nav class="sm:flex justify-center items-center ">
       <div class="space-x-2 font-mono">
         <RouterLink :to="{ name: 'EventList' }">Home</RouterLink>
         <RouterLink :to="{ name: 'about' }">About</RouterLink>
         <!-- 4.15 problem  in line 17-->
-        <RouterLink :to="{ name: 'category' }">Category</RouterLink>
+        <RouterLink :to="{ name: 'organizer' }">Organizer</RouterLink>
         <RouterLink :to="{ name: 'student' }">Student</RouterLink>
       </div>
     </nav>

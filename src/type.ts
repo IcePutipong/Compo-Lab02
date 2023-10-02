@@ -20,3 +20,9 @@ export interface StudentItem {
   penAount:number
   description: string
 }
+
+export interface Organizer {
+  id: number;
+  name: string;
+  address: string;
+}

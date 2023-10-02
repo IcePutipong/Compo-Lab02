@@ -1,7 +1,7 @@
 // 4.15 problem in line 4 and 22-26
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListView.vue'
-import CategoryView from '../views/CategoryView.vue'
+import OrganizerView from '../views/OrganizerView.vue'
 import AboutView from '../views/AboutView.vue'
 import StudentView from '../views/StudentView.vue'
 import EventDetailView from '@/views/event/EventDetailView.vue'
@@ -29,9 +29,10 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/category',
-      name: 'category',
-      component: CategoryView
+      path: '/organizer',
+      name: 'organizer',
+      component: OrganizerView,
+      props: (route) => ({page: parseInt(route.query?.page as string || '1')})
     },
     {
       path: '/student',
