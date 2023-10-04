@@ -1,6 +1,6 @@
 <template>
   <RouterLink :to="{name: 'event-detail', params: {id: event?.id}}">
-      <div class="mb-3 p-2 border-2 border-solid border-emerald-300 w-72 h-16">
+      <div class="mb-3 p-2 border-2 border-solid border-emerald-300 w-80 h-16">
           <span class="font-mono"> @{{ event?.time }} on {{ event?.date }} </span>
           <h4 class="text-center font-semibold font-mono">{{ event?.title }}</h4>
       </div>

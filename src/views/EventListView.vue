@@ -38,7 +38,7 @@ const props = defineProps({
 })
 
 // eslint-disable-next-line vue/no-setup-props-destructure
-EventService.getEvent(3, props.page).then((response: AxiosResponse<EventItem[]>) => {
+EventService.getEvent(2, props.page).then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
     totalEvent.value = response.headers['x-total-count']
   }).catch(()=>{
@@ -48,7 +48,7 @@ EventService.getEvent(3, props.page).then((response: AxiosResponse<EventItem[]>)
   onBeforeRouteUpdate((to, from, next) =>{
     const toPage = Number(to.query.page)
     ///????????
-    EventService.getEvent(3, toPage).then((response: AxiosResponse<EventItem[]>) =>{
+    EventService.getEvent(2, toPage).then((response: AxiosResponse<EventItem[]>) =>{
       events.value = response.data
       totalEvent.value = response.headers['x-total-count']
       next()
