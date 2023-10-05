@@ -22,6 +22,8 @@ const sizes = ref<number>(2)
         <RouterLink :to="{ name: 'about' }">About</RouterLink>
         <!-- 4.15 problem  in line 17-->
         <RouterLink :to="{ name: 'organizer' }">Organizer</RouterLink>
+        <RouterLink :to="{ name: 'add-event' }">New Event</RouterLink>
+        <RouterLink :to="{name: 'add-organizer'}">New Organizer</RouterLink>
         <RouterLink :to="{ name: 'student' }">Student</RouterLink>
       </div>
     </nav>

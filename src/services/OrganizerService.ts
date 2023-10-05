@@ -17,5 +17,8 @@ export default {
     },
     getOrganizerById(id:number): Promise<AxiosResponse<Organizer>>{
         return apiClient.get<Organizer>('organizers/'+id.toString())
+    },
+    saveOrganizer(organizer: Organizer): Promise<AxiosResponse<Organizer>> {
+        return apiClient.post<Organizer>('/organizers', organizer)
     }
 }
