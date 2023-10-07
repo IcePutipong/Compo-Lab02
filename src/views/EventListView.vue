@@ -59,7 +59,7 @@ EventService.getEvent(2, props.page).then((response: AxiosResponse<EventItem[]>)
     
 
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvent.value / 3)
+  const totalPages = Math.ceil(totalEvent.value / 2)
   return props.page.valueOf() < totalPages
 })
 </script>

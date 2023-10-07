@@ -6,8 +6,10 @@ export interface EventItem {
   location: string
   date: string
   time: string
-  organizer: EventOrganizer | string
+  organizer: Organizer | string
   petsAllowed: boolean
+  
+
 }
 
 export interface StudentItem {
@@ -24,7 +26,6 @@ export interface StudentItem {
 export interface Organizer {
   id: number;
   name: string;
-  address: string;
 }
 
 export interface EventOrganizer{
