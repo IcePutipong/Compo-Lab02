@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import EventService from '@/services/EventService'
 import { useRouter } from 'vue-router'
 import { useMessangeStore } from '@/stores/message'
+import BaseInput from '@/components/BaseInput.vue'
 const store = useMessangeStore()
 
 const event = ref<EventItem>({
@@ -14,7 +15,7 @@ const event = ref<EventItem>({
   location: '',
   date: '',
   time: '',
-  organizer: '',
+  organizer: {id: 1 , name: " "},
   petsAllowed: false
 })
 
@@ -42,20 +43,16 @@ function saveEvent() {
   <div>
     <h1>Create an event</h1>
     <form @submit.prevent="saveEvent">
-      <label>Category</label>
-      <input v-model="event.category" type="text" placeholder="Category" class="field" />
+      <BaseInput v-model="event.category" type="text" label="Category"/>
       <h3>Name & describe your event</h3>
 
-      <label>Title</label>
-      <input v-model="event.title" type="text" placeholder="Title" class="field" />
+      <BaseInput v-model="event.title" type="text" label="Title"/>
 
-      <label>Description</label>
-      <input v-model="event.description" type="text" placeholder="Description" class="field" />
+      <BaseInput v-model="event.description" type="text" label="Description"/>
 
       <h3>Where is your event?</h3>
 
-      <label>Location</label>
-      <input v-model="event.location" type="text" placeholder="Location" class="field" />
+      <BaseInput v-model="event.location" type="text" label="Location"/>
 
       <label>Date</label>
       <input v-model="event.date" type="text" placeholder="Date" class="flield">

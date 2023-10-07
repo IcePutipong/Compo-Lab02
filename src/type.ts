@@ -6,7 +6,7 @@ export interface EventItem {
   location: string
   date: string
   time: string
-  organizer: string
+  organizer: EventOrganizer | string
   petsAllowed: boolean
 }
 
@@ -25,4 +25,9 @@ export interface Organizer {
   id: number;
   name: string;
   address: string;
+}
+
+export interface EventOrganizer{
+  id: number;
+  name: string;
 }
