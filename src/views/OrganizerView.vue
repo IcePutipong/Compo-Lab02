@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-setup-props-destructure -->
 <!-- 4.15 problem create this file-->
 <script setup lang="ts">
 import type { Organizer } from '@/type';
@@ -18,8 +19,8 @@ const props = defineProps({
   }
 })
 
-// eslint-disable-next-line vue/no-setup-props-destructure
-OrganizerService.getOrganizers(3, props.page).then((response: AxiosResponse<Organizer[]>) => {
+
+OrganizerService.getOrganizers().then((response: AxiosResponse<Organizer[]>) => {
   organizers.value = response.data
   totalOrganizer.value = response.headers['x-total-count']
 }).catch(()=>{
@@ -30,7 +31,7 @@ OrganizerService.getOrganizers(3, props.page).then((response: AxiosResponse<Orga
 onBeforeRouteUpdate((to,form, next) =>{
   const toPage = Number(to.query.page)
 
-  OrganizerService.getOrganizers(3, toPage).then((response: AxiosResponse<Organizer[]>) =>{
+  OrganizerService.getOrganizers().then((response: AxiosResponse<Organizer[]>) =>{
     organizers.value = response.data
     totalOrganizer.value = response.headers['x-total-count']
     next()

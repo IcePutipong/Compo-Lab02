@@ -21,11 +21,14 @@ export interface StudentItem {
   image: string
   penAount:number
   description: string
+  
 }
 
 export interface Organizer {
   id: number;
   name: string;
+  address: string;
+  images: string
 }
 
 export interface EventOrganizer{

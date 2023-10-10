@@ -18,7 +18,7 @@ const event = ref<EventItem>({
   location: '',
   date: '',
   time: '',
-  organizer: { id: 1, name: ' ' },
+  organizer: { id: 1, name: ' ',images: '' },
   petsAllowed: false,
   images: []
   
