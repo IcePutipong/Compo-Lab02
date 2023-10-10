@@ -19,7 +19,7 @@ const props = defineProps({
 })
 
 // eslint-disable-next-line vue/no-setup-props-destructure
-OrganizerService.getOrganizer(3, props.page).then((response: AxiosResponse<Organizer[]>) => {
+OrganizerService.getOrganizers(3, props.page).then((response: AxiosResponse<Organizer[]>) => {
   organizers.value = response.data
   totalOrganizer.value = response.headers['x-total-count']
 }).catch(()=>{
@@ -30,7 +30,7 @@ OrganizerService.getOrganizer(3, props.page).then((response: AxiosResponse<Organ
 onBeforeRouteUpdate((to,form, next) =>{
   const toPage = Number(to.query.page)
 
-  OrganizerService.getOrganizer(3, toPage).then((response: AxiosResponse<Organizer[]>) =>{
+  OrganizerService.getOrganizers(3, toPage).then((response: AxiosResponse<Organizer[]>) =>{
     organizers.value = response.data
     totalOrganizer.value = response.headers['x-total-count']
     next()

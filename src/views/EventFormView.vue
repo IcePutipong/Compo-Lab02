@@ -7,6 +7,7 @@ import BaseInput from '@/components/BaseInput.vue'
 import { type EventOrganizer, type EventItem } from '@/type'
 import OrganizerService from '@/services/OrganizerService'
 import BaseSelect from '@/components/BaseSelect.vue'
+import ImageUpload from '@/components/ImageUpload.vue'
 
 const store = useMessangeStore()
 const event = ref<EventItem>({
@@ -19,6 +20,7 @@ const event = ref<EventItem>({
   time: '',
   organizer: { id: 1, name: ' ' },
   petsAllowed: false,
+  images: []
   
 })
 
@@ -78,6 +80,8 @@ OrganizerService.getOrganizers()
         label="Organizer"
         :options="organizers"
       />
+      <h3>The image of the Event</h3>
+      <ImageUpload v-model="event.images"/>
       <button type="submit" class="ml-2">Submit</button>
     </form>
 

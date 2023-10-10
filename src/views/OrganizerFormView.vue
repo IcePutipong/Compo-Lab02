@@ -11,12 +11,11 @@ const store = useMessangeStore()
 const organizer = ref<Organizer> ({
     id: 0,
     name: '',
-    address: ''
 })
 
 const router = useRouter()
 function saveOrganizer(){
-    OrganizerService.saveOrganizer(organizer.value)
+    OrganizerService.saveOrganizers(organizer.value)
     .then((response) =>{
         console.log(response.data)
         router.push({
