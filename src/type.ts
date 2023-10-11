@@ -25,13 +25,8 @@ export interface StudentItem {
 }
 
 export interface Organizer {
-  id: number;
-  name: string;
-  address: string;
-  images: string
-}
-
-export interface EventOrganizer{
-  id: number;
-  name: string;
+  id: number
+  name: string
+  address: string
+  images: string[]
 }

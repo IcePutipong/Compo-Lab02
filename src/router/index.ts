@@ -15,6 +15,10 @@ import NetworkErrorView from '../views/NetworkErrorView.vue'
 import NProgress from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
+import OrganizerLayoutVue from '@/views/orgainzer/OrganizerLayout.vue'
+import {useOrganizer } from '@/stores/organizer'
+import OrganizerService from '@/services/OrganizerService'
+import OrganizerDetailViewVue from '@/views/orgainzer/OrganizerDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -112,6 +116,39 @@ const router = createRouter({
       name: 'add-organizer',
       component: AddOrganizerView
     },
+    {
+      path: '/organizer/:id',
+      name: 'organizer-layout',
+      component: OrganizerLayoutVue,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const organizationStore = useOrganizer()
+        return OrganizerService.getOrganizerById(id)
+            .then((response) => {
+              // need to set up the data for the component
+              organizationStore.setOrganizer(response.data)
+            })
+            .catch((error) => {
+              if (error.response && error.response.status === 404) {
+                return {
+                  name: '404-resource',
+                  params: { resource: 'organizer' }
+                }
+              } else {
+                return { name: 'network-error' }
+              }
+            })
+      },
+      children:[
+        {
+          path: '',
+          name: 'organizer-detail',
+          component: OrganizerDetailViewVue
+
+        }
+      ]
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
