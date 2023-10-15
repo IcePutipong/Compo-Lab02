@@ -19,6 +19,7 @@ import OrganizerLayoutVue from '@/views/orgainzer/OrganizerLayout.vue'
 import {useOrganizer } from '@/stores/organizer'
 import OrganizerService from '@/services/OrganizerService'
 import OrganizerDetailViewVue from '@/views/orgainzer/OrganizerDetailView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -148,6 +149,10 @@ const router = createRouter({
 
         }
       ]
+    },{
+      path: '/login',
+      name: 'login',
+      component: LoginView
     }
   ],
   scrollBehavior(to, from, savedPosition) {
