@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div class="network-error">
+    <div class="network-error ">
         <h1>Uh-oh!</h1>
         <h3>
             It look like you're experiencing some network issue, pls take reath and 

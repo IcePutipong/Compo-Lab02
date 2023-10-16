@@ -6,8 +6,10 @@ export interface EventItem {
   location: string
   date: string
   time: string
-  organizer: string
+  organizer: Organizer | string
   petsAllowed: boolean
+  images: string[]
+
 }
 
 export interface StudentItem {
@@ -19,4 +21,14 @@ export interface StudentItem {
   image: string
   penAount:number
   description: string
+  
 }
+
+export interface Organizer {
+  id: number
+  name: string
+  address: string
+  images: string[]
+  roles: string[]
+}
+
