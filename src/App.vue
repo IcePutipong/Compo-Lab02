@@ -70,8 +70,12 @@ if( token && user) {
           <RouterLink :to="{ name: 'about' }">About</RouterLink>
           <!-- 4.15 problem  in line 17-->
           <RouterLink :to="{ name: 'organizer' }">Organizer</RouterLink>
-          <RouterLink :to="{ name: 'add-event' }">New Event</RouterLink>
-          <RouterLink :to="{ name: 'add-organizer' }">New Organizer</RouterLink>
+          <span v-if="authStore.isAdmin">
+            <RouterLink :to="{ name: 'add-event' }">New Event</RouterLink>
+          </span>
+          <span v-if="authStore.isAdmin">
+            <RouterLink :to="{ name: 'add-organizer' }">New Organizer</RouterLink>
+          </span>
           <RouterLink :to="{ name: 'student' }">Student</RouterLink>
         </div>
       </nav>

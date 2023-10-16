@@ -29,4 +29,6 @@ export interface Organizer {
   name: string
   address: string
   images: string[]
+  roles: string[]
 }
+
